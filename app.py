@@ -297,11 +297,11 @@ if predict_button:
                 columns=['Predicted: No', 'Predicted: Yes'],
                 index=['Actual: No', 'Actual: Yes']
             )
-            st.dataframe(cm_df, width='stretch')
+            st.dataframe(cm_df, width=700)
 
             st.write("**Classification Report:**")
             cr_df = pd.DataFrame(data_cache['classification_report']).transpose()
-            st.dataframe(cr_df.round(4), width='stretch')
+            st.dataframe(cr_df.round(4), width=700)
 
             st.subheader("🎯 Prediction Confidence Breakdown")
             fig = go.Figure(data=[
@@ -317,6 +317,6 @@ if predict_button:
                 height=400,
                 showlegend=False
             )
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, use_container_width=True)
 else:
     st.info("Fill in the customer details and click the **Predict** button in the sidebar.")
